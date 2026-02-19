@@ -1,4 +1,4 @@
-## Lesson Summary (React Basics, JSX):
+# Lesson Summary
 
 1. **React** = external library that helps us create websites easier
 
