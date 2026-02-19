@@ -1,4 +1,4 @@
-# Lesson Summary
+## Lesson Summary (React Basics, JSX):
 
 1. **React** = external library that helps us create websites easier
 
@@ -13,5 +13,3 @@
 6. **Created elements directly with JSX**
 
 7. **Insert values into JSX elements**
-
----
