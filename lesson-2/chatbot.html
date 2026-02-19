@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Super Simple</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      // component name must start a capital letter. Pascal Case
+      function ChatInput() {
+        return (
+          <>
+            {/*Fragments to remove unnecessary divs*/}
+            <input placeholder="Send a message to Chatbot" size="30" />
+            <button>Send</button>
+            {/*JSX is more strict than HTML.*/}
+            {/*All elements need closing tag <input></input> or <input /> self closing*/}
+          </>
+        );
+      }
+
+      // props short for properties
+      function ChatMessage({ message, sender }) {
+        // Destructuring
+        // const { message, sender } = props;
+        // const message = props.message;
+        // const sender = props.sender;
+
+        /*
+        if (sender === "robot") {
+          return (
+            <div>
+              <img src="robot.png" width="50" />
+              {message}
+            </div>
+          );
+        }
+        */
+
+        // && guard operator if left value is true then result will be value on right
+        return (
+          <div>
+            {sender === "robot" && <img src="robot.png" width="50" />}
+            {message}
+            {sender === "user" && <img src="user.png" width="50" />}
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <ChatInput />
+            <ChatMessage message="hello chatbot" sender="user" />
+            <ChatMessage message="Hello! How can I help you?" sender="robot" />
+            <ChatMessage message="can you get me todays date" sender="user" />
+            <ChatMessage message="Today is February 19" sender="robot" />
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
