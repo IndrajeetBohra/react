@@ -1,4 +1,6 @@
-# Lesson Summary
+# Lesson 1 – React basics, JSX
+
+## Lesson Summary
 
 1. **React** = external library that helps us create websites easier
 
