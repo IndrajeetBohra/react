@@ -16,6 +16,7 @@
     <script type="text/babel">
       function ChatInput({ chatMessages, setChatMessages }) {
         const [inputText, setInputText] = React.useState("");
+        const [isLoading, setIsLoading] = React.useState(false);
 
         function saveInputText(event) {
           // gives us the element we are typing in or changed
@@ -23,6 +24,12 @@
         }
 
         async function sendMessage() {
+          if (isLoading || inputText === "") {
+            return;
+          }
+
+          setInputText("");
+
           const newChatMessages = [
             ...chatMessages,
             {
@@ -32,7 +39,14 @@
             },
           ];
 
-          setChatMessages(newChatMessages);
+          setChatMessages([
+            ...newChatMessages,
+            {
+              message: "Loading...",
+              sender: "robot",
+              id: crypto.randomUUID(),
+            },
+          ]);
 
           const response = await Chatbot.getResponseAsync(inputText); //external SSD chatbot API
           setChatMessages([
@@ -43,8 +57,7 @@
               id: crypto.randomUUID(),
             },
           ]);
-
-          setInputText("");
+          setIsLoading(false);
         }
 
         function handleKeyDown(event) {
@@ -131,7 +144,7 @@
               setChatMessages={setChatMessages}
             />
             <ChatMessages chatMessages={chatMessages} />
-            {/* Instead of something like this react uses same name for everything
+            {/* Instead of something like below react uses same name for everything
               <ChatMessagesComponent chatMessagesProp={chatMessagesArray} /> */}
           </>
         );
