@@ -26,7 +26,7 @@
 7. **Lifting the State Up**
    - Share state between components
 
-    <img src='Lifting-state-up.png' alt='Lifitng the state up' width=400/>
+      <img src='Lifting-state-up.png' alt='Lifitng the state up' width=400/>
 
 8. **Made `<ChatInput>` interactive**
    - Handled user input
@@ -35,3 +35,10 @@
 9. **Implemented Chatbot responses**
    - Generated responses
    - Displayed responses using components
+
+10. **Exercise Changes**
+    - Send message `onKeyDown` Enter
+    - Clear text in input field `onKeyDown` Escape
+    - Update ChatBot Api method to `.getResponseAsync` for response delay
+    - Update `sendMessage` to be `async` and `await` for api response
+    - Add `isLoading` state and don't allow sending new message if loading or inputText is empty
