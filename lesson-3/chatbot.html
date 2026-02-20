@@ -22,7 +22,7 @@
           setInputText(event.target.value);
         }
 
-        function sendMessage() {
+        async function sendMessage() {
           const newChatMessages = [
             ...chatMessages,
             {
@@ -34,7 +34,7 @@
 
           setChatMessages(newChatMessages);
 
-          const response = Chatbot.getResponse(inputText); //external SSD chatbot API
+          const response = await Chatbot.getResponseAsync(inputText); //external SSD chatbot API
           setChatMessages([
             ...newChatMessages,
             {
