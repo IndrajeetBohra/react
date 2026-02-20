@@ -22,3 +22,8 @@
    - Save an HTML element from the component
 
 8. **Created the auto-scroll feature**
+
+9. **Exercise Changes**
+   - Remove default chat messages. Display a welcome message
+   - Add loadin-spinner.gif when waiting for API response
+   - Create custom hook `useAutoScroll`. And make `useRef` generic so it can be used elsewhere
