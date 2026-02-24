@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "mktest": "mkdir test1",
+    "rmtest": "rmdir test1"
+  }
+}
