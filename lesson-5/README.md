@@ -31,3 +31,4 @@
    - 5f Create a new React setup for Login Form
    - 5g-k updates in the main chatbot project
    - 5g change user profile image and add css to it
+   - 5h add custom responses with `Chatbot` api `addResponses` method using useEffect()
