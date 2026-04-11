@@ -32,3 +32,6 @@
    - 5g-k updates in the main chatbot project
    - 5g change user profile image and add css to it
    - 5h add custom responses with `Chatbot` api `addResponses` method using useEffect()
+   - 5i add timestamp under each message and response using `dayjs`
+   - 5j save the messages in `localStorage`
+   - 5k make a clear button to clear `localStorage`
