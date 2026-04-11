@@ -17,5 +17,8 @@
   max-width: 300px;
 }
 .chat-message-profile {
+  height: 45px;
   width: 45px;
+  border-radius: 45px;
+  object-fit: cover;
 }

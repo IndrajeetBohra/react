@@ -25,3 +25,9 @@
 8. **Separated each component**
    - Into its own `.jsx` file
    - Into its own `.css` file
+
+9. **Exercise Changes**
+   - 5a-e Terminal revision commands - `cd`, `pwd`, `mkdir`, `rmdir`, `npx`, create our own npm script
+   - 5f Create a new React setup for Login Form
+   - 5g-k updates in the main chatbot project
+   - 5g change user profile image and add css to it
