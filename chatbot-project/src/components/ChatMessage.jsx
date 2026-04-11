@@ -1,8 +1,9 @@
+import dayjs from "dayjs";
 import RobotProfileImage from "../assets/robot.png";
 import UserProfileImage from "../assets/profile-1.jpg";
 import "./ChatMessage.css";
 
-export function ChatMessage({ message, sender }) {
+export function ChatMessage({ message, sender, time }) {
   return (
     <div
       className={sender === "user" ? "chat-message-user" : "chat-message-robot"}
@@ -11,7 +12,12 @@ export function ChatMessage({ message, sender }) {
         <img src={RobotProfileImage} className="chat-message-profile" />
       )}
 
-      <div className="chat-message-text">{message}</div>
+      <div className="chat-message-text">
+        {message}
+        {/* The "time && (" check is optional. I added it just to be safe. */}
+
+        <div className="chat-message-time">{dayjs(time).format("h:mm a")}</div>
+      </div>
 
       {sender === "user" && (
         <img src={UserProfileImage} className="chat-message-profile" />
@@ -19,4 +25,3 @@ export function ChatMessage({ message, sender }) {
     </div>
   );
 }
-console.log(UserProfileImage);
