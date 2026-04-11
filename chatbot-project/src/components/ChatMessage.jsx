@@ -15,8 +15,11 @@ export function ChatMessage({ message, sender, time }) {
       <div className="chat-message-text">
         {message}
         {/* The "time && (" check is optional. I added it just to be safe. */}
-
-        <div className="chat-message-time">{dayjs(time).format("h:mm a")}</div>
+        {time && (
+          <div className="chat-message-time">
+            {dayjs(time).format("h:mm:ss a")}
+          </div>
+        )}
       </div>
 
       {sender === "user" && (
