@@ -1,17 +1,23 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
-import { products } from "../../starting-code/data/products.js";
+// import { products } from "../../starting-code/data/products.js";
 import CheckmarkIcon from "../assets/images/icons/checkmark.png";
 import "./HomePage.css";
 // import { data } from "react-router";
 
 export function HomePage() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/products").then((response) => {
+      setProducts(response.data);
+    });
+  }, []); // dependecy array. when empty only runs once
+
   // .then is used by promises as it is async
   // fetch returns a promise as the request takes time
-  // similarly .json() is also async ie it takes time
-  axios.get("http://localhost:3000/api/products").then((response) => {
-    console.log(response.data);
-  });
+  // similarly .json() is also async i.e it takes time
 
   return (
     <>
