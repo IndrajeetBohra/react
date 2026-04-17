@@ -2,8 +2,20 @@ import { Header } from "../components/Header";
 import { products } from "../../starting-code/data/products.js";
 import CheckmarkIcon from "../assets/images/icons/checkmark.png";
 import "./HomePage.css";
+// import { data } from "react-router";
 
 export function HomePage() {
+  // .then is used by promises as it is async
+  // fetch returns a promise as the request takes time
+  // similarly .json() is also async ie it takes time
+  fetch("http://localhost:3000/api/products")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+
   return (
     <>
       <link
