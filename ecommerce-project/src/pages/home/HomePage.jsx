@@ -1,19 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import { Header } from "../../components/Header";
 import { ProductsGrid } from "./ProductsGrid";
 import "./HomePage.css";
 
 export function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get("search");
 
   useEffect(() => {
     const getHomeData = async () => {
-      const response = await axios.get("/api/products");
+      const urlPath = search
+        ? `/api/products?search=${search}`
+        : "/api/products";
+      const response = await axios.get(urlPath);
       setProducts(response.data);
     };
     getHomeData();
-  }, []); // dependecy array. when empty only runs once
+  }, [search]); // dependecy array. when empty only runs once
 
   // .then is used by promises as it is async
   // fetch returns a promise as the request takes time
